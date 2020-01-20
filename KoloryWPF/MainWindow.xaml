@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KoloryWPF"
         mc:Ignorable="d"
-    Title="MainWindow" FontSize="25" Height="350" Width="525" KeyDown="Window_KeyDown">    
+    Title="MainWindow" FontSize="25" Height="350" Width="525" 
+        KeyDown="Window_KeyDown"
+        Closed="Window_Closed">    
     <!--x:class pomost do namespace KoloryWPF
     
     -->

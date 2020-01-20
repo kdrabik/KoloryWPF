@@ -23,8 +23,11 @@ namespace KoloryWPF
         public MainWindow()
         {
             InitializeComponent();
-            rectangle.Fill = new SolidColorBrush(Colors.Black);
-
+            Color kolor = Ustawienia.Czytaj();
+            rectangle.Fill = new SolidColorBrush(kolor);
+            sliderR.Value = kolor.R;
+            sliderG.Value = kolor.G;
+            sliderB.Value = kolor.B;
         }
 
         private void sliderR_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -35,17 +38,28 @@ namespace KoloryWPF
                 (byte)sliderB.Value
                 );
             // rectangle.Fill = new SolidColorBrush(kolor);
-            (rectangle.Fill as SolidColorBrush).Color = kolor;
+            //(rectangle.Fill as SolidColorBrush).Color = kolor;
+            KolorProstokąta = kolor;
         }
 
         private void sliderG_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
+            Color kolor = Color.FromRgb(
+                (byte)sliderR.Value,
+                (byte)sliderG.Value,
+                (byte)sliderB.Value
+                );
+            KolorProstokąta = kolor;
         }
 
         private void sliderB_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
+            Color kolor = Color.FromRgb(
+                (byte)sliderR.Value,
+                (byte)sliderG.Value,
+                (byte)sliderB.Value
+                );
+            KolorProstokąta = kolor;
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -81,6 +95,11 @@ namespace KoloryWPF
             {
                 (rectangle.Fill as SolidColorBrush).Color = value;
             }
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Ustawienia.Zapisz(KolorProstokąta);
         }
     }
 }
