@@ -13,17 +13,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KoloryWPF
+namespace KoloryWPF2
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    using Model;
+    using ModelWidoku;
+
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            Color kolor = Ustawienia.Czytaj();
+            Color kolor = Ustawienia.Czytaj().ToColor();
             rectangle.Fill = new SolidColorBrush(kolor);
             sliderR.Value = kolor.R;
             sliderG.Value = kolor.G;
@@ -64,13 +67,13 @@ namespace KoloryWPF
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Escape)
+            if (e.Key == Key.Escape)
             {
                 Close();
             }
             else
             {
-                MessageBoxResult result= MessageBox.Show("Naciśnij escape aby zamknąć aplikacje","Test Box",MessageBoxButton.OKCancel,MessageBoxImage.Information);
+                MessageBoxResult result = MessageBox.Show("Naciśnij escape aby zamknąć aplikacje", "Test Box", MessageBoxButton.OKCancel, MessageBoxImage.Information);
                 switch (result)
                 {
                     case MessageBoxResult.OK:
@@ -99,7 +102,7 @@ namespace KoloryWPF
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            Ustawienia.Zapisz(KolorProstokąta);
+            Model.Ustawienia.Zapisz(new Model.Kolor(KolorProstokąta.R, KolorProstokąta.G, KolorProstokąta.B));
         }
     }
 }
