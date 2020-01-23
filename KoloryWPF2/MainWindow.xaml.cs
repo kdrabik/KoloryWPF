@@ -67,6 +67,9 @@ namespace KoloryWPF2
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
+            //Color TestColor = Color.FromRgb(255,255,255);
+            //MessageBox.Show($"{TestColor.R}");
+            
             if (e.Key == Key.Escape)
             {
                 Close();
@@ -102,7 +105,7 @@ namespace KoloryWPF2
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            Model.Ustawienia.Zapisz(new Model.Kolor(KolorProstokąta.R, KolorProstokąta.G, KolorProstokąta.B));
+            Ustawienia.Zapisz(new Kolor(KolorProstokąta.R, KolorProstokąta.G, KolorProstokąta.B));
         }
     }
 }
