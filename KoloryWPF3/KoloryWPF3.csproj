@@ -69,6 +69,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Konwertery.cs" />
+    <Compile Include="ModelWidoku\Obserwable.cs" />
     <Compile Include="ModelWidoku\EdycjaKoloru.cs" />
     <Compile Include="Model\KlasaKolor.cs" />
     <Compile Include="Model\Ustawienia.cs" />
