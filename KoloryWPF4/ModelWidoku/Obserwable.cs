@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KoloryWPF3.ModelWidoku
+namespace KoloryWPF4.ModelWidoku
 {
     //public abstract class ObservedObject : INotifyPropertyChanged
     //{

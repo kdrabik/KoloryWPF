@@ -1,10 +1,10 @@
 ﻿using System.Windows.Media;
 using System.ComponentModel;
 
-namespace KoloryWPF3.ModelWidoku
+namespace KoloryWPF4.ModelWidoku
 {
     using Model;
-    
+    using System.Windows.Input;
 
     public class EdycjaKoloru : ObservedObject
     {
@@ -74,10 +74,20 @@ namespace KoloryWPF3.ModelWidoku
         //    }
         //}
 
+
+            //implementacja IC
+        private ICommand resetujCommand;
+        public ICommand Resetuj
+        {
+            get
+            {
+                if (resetujCommand == null) resetujCommand = new ResetujCommand(this);
+                return resetujCommand;
+            }
+        }
+
+
     }
-
-
-
 
 
 
@@ -94,6 +104,8 @@ namespace KoloryWPF3.ModelWidoku
             };
         }
     }
+
+
     public class EdycjaKoloru2 : INotifyPropertyChanged
     {
         public EdycjaKoloru2()

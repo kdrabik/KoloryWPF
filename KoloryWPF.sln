@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoloryWPF2", "KoloryWPF2\Ko
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoloryWPF3", "KoloryWPF3\KoloryWPF3.csproj", "{539F3BFD-748A-46C7-BE62-35476053585E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoloryWPF4", "KoloryWPF4\KoloryWPF4.csproj", "{C589EC8C-7C07-4612-8E04-657F67E55AD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{539F3BFD-748A-46C7-BE62-35476053585E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{539F3BFD-748A-46C7-BE62-35476053585E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{539F3BFD-748A-46C7-BE62-35476053585E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C589EC8C-7C07-4612-8E04-657F67E55AD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C589EC8C-7C07-4612-8E04-657F67E55AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C589EC8C-7C07-4612-8E04-657F67E55AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C589EC8C-7C07-4612-8E04-657F67E55AD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
