@@ -9,30 +9,64 @@
     Title="MainWindow" FontSize="25" Height="350" Width="525" 
         KeyDown="Window_KeyDown"
         Closed="Window_Closed">
-    <!--x:class pomost do namespace KoloryWPF
-    
-    -->
+
     <Window.Resources>
         <vm:EdycjaKoloru x:Key="edycjaKoloru" />
         <local:ByteToDoubleConverter x:Key="konwersjaByteDouble" />
         <local:ColorToSolidColorBrushConverter x:Key="konwersjaColorBrush" />
+        <local:SkładoweRGBToSolidColorBrushConverter x:Key="konwersjaRGBBrush" />
+        <local:SkładoweRGBDoubleToSolidColorBrushConverter x:Key="konwersjaRGBDoubleBrush" />
         <!--konwerter typów konieczny w WP10 /-->
         <!--vm:EdycjaKoloru2 x:Key="edycjaKoloru" /-->
     </Window.Resources>
     <Grid DataContext="{StaticResource edycjaKoloru}" Height="319" VerticalAlignment="Bottom">
-        <!--Rectangle x:Name="rectangle" Margin="10,10,10,91" Stroke="Black">
+        <!--zwykły binding-->
+        <Rectangle x:Name="rectangle" Margin="10,10,10,91" Stroke="Black">
             <Rectangle.Fill>
                 <SolidColorBrush Color="{Binding Path=Color, Mode=OneWay}" />
             </Rectangle.Fill>
-        </-->
-        <Rectangle x:Name="rectangle" Margin="10,10,10,91" Stroke="Black"
-                Fill="{Binding Color, Converter={StaticResource konwersjaColorBrush}}" />
-        <Slider x:Name="sliderR" Margin="10,0,10,64" Height="22" VerticalAlignment="Bottom" 
+        </Rectangle>
+        <!--binding z kowersją-->
+        <!--<Rectangle x:Name="rectangle" Margin="10,10,10,91" Stroke="Black"
+                Fill="{Binding Color, Converter={StaticResource konwersjaColorBrush}}" />-->
+        <!--multibinding-->
+        <!--<Rectangle x:Name="rectangle" Margin="10,10,10,91" Stroke="Black">
+            <Rectangle.Fill>
+                <MultiBinding Mode="OneWay" Converter="{StaticResource konwersjaRGBBrush}">
+                    <Binding Path="R" />
+                    <Binding Path="G" />
+                    <Binding Path="B" />
+                </MultiBinding>
+            </Rectangle.Fill>
+        </Rectangle>-->
+        <!--binding rectangle w widoku do suwaków:-->
+        <!--<Rectangle x:Name="rectangle" Margin="10,10,10,91" Stroke="Black">
+            <Rectangle.Fill>
+                <MultiBinding Mode="OneWay" Converter="{StaticResource konwersjaRGBDoubleBrush}">
+                    <Binding ElementName="sliderR" Path="Value" />
+                    <Binding ElementName="sliderG" Path="Value" />
+                    <Binding ElementName="sliderB" Path="Value" />
+                </MultiBinding>
+            </Rectangle.Fill>
+        </Rectangle>-->
+        <Slider x:Name="sliderR" Margin="10,0,40,64" Height="22" VerticalAlignment="Bottom" 
                 Maximum="255" Value="{Binding Path=R, Mode=TwoWay, Converter={StaticResource konwersjaByteDouble}}"/>
-        <Slider x:Name="sliderG" Margin="10,0,10,37" Height="22" VerticalAlignment="Bottom" 
+        <TextBlock x:Name="SliderRtext" Height="22" VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" Margin="10,0,10,64"
+                Text="{Binding ElementName=sliderR, Path=Value}" FontSize="12" />
+        <!--<TextBlock x:Name="SliderRtextTest" Height="22" VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" Margin="10,0,40,64"
+                Text="{Binding Path=R, Mode=OneWay}" FontSize="12" />-->        
+        <Slider x:Name="sliderG" Margin="10,0,40,37" Height="22" VerticalAlignment="Bottom" 
                 Maximum="255" Value="{Binding Path=G, Mode=TwoWay, Converter={StaticResource konwersjaByteDouble}}"/>
-        <Slider x:Name="sliderB" Margin="10,0,10,10" Height="22" VerticalAlignment="Bottom" 
-               Maximum="255" Value="{Binding Path=B, Mode=TwoWay, Converter={StaticResource konwersjaByteDouble}}"/>
+        <TextBlock x:Name="SliderGtext" Height="22" VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" Margin="10,0,10,37"
+                Text="{Binding ElementName=sliderG, Path=Value}" FontSize="12" />
+        <Slider x:Name="sliderB" Margin="10,0,40,10" Height="22" VerticalAlignment="Bottom" 
+                Maximum="255" Value="{Binding Path=B, Mode=TwoWay, Converter={StaticResource konwersjaByteDouble}}"/>
+        <TextBlock x:Name="SliderBtext" Height="22" VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" Margin="10,0,10,10"
+                Text="{Binding ElementName=sliderB, Path=Value}" FontSize="12" />
     </Grid>
 </Window>
 
