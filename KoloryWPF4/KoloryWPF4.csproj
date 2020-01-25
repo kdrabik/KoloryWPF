@@ -76,6 +76,7 @@
     <Compile Include="ModelWidoku\Polecenia.cs" />
     <Compile Include="ModelWidoku\EdycjaKoloru.cs" />
     <Compile Include="ModelWidoku\Obserwable.cs" />
+    <Compile Include="Model\Clipboard.cs" />
     <Compile Include="Model\KlasaKolor.cs" />
     <Compile Include="Model\Ustawienia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

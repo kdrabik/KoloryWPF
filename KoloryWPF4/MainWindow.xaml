@@ -4,8 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KoloryWPF4"
-        xmlns:vm="clr-namespace:KoloryWPF4.ModelWidoku"
-        
+        xmlns:vm="clr-namespace:KoloryWPF4.ModelWidoku"        
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
     Title="Kolory WPF" FontSize="25" Height="380" Width="525"
@@ -30,6 +29,7 @@
     </Window.DataContext>
     <Window.InputBindings>
         <KeyBinding Key="R" Command="{Binding Resetuj}" />
+        <KeyBinding Key="C" Modifiers="Ctrl" Command="{Binding KopiujKolor}" />
         <KeyBinding Key="Esc" Command="{Binding ZamknijOkno}" />
         <MouseBinding Gesture="MiddleClick" Command="{Binding Resetuj}" />
     </Window.InputBindings>
@@ -96,6 +96,9 @@
         <Button Content="Zakończ" Height="25" Width="75"
             VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10"
             Command="{Binding ZamknijOkno}" FontSize="12" />
+        <Button Content="Kopiuj" Height="25" Width="75"
+            VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="230,0,0,10"
+            Command="{Binding KopiujKolor}" FontSize="12" />
         <!--CommandParameter="{StaticResource edycjaKoloru}" />-->
     </Grid>
 </Window>

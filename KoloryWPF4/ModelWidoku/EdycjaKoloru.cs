@@ -157,7 +157,18 @@ namespace KoloryWPF4.ModelWidoku
                 //    });
             }
         }
-        
+
+        public ICommand KopiujKolor
+        {
+            get
+            {
+                return new RelayCommand(argument => { 
+                    CopyColorToClipboard.Kopiuj(RectangleColor); 
+                });
+            }
+        }
+
+
 
     }
 
