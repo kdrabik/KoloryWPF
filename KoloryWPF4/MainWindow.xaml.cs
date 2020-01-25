@@ -21,6 +21,15 @@ namespace KoloryWPF4
     using Model;
     using ModelWidoku;
 
+    //fix do braku bibliotek System.Windows.Interactivity.dll i Microsoft.Expression.Interaction.dll z przykładu:
+    //nuget package to install: PM> Install-Package MicrosoftExpressionInteractions -Version 3.0.40218
+    //nuget package to install: PM> Install-Package System.Windows.Interactivity.WPF -Version 2.0.20525
+    //https://stackoverflow.com/questions/8360209/how-to-add-system-windows-interactivity-to-project
+
+    //biblioteka która zastępuje powyższe    
+    //https://developercommunity.visualstudio.com/content/problem/535255/how-to-install-blend-sdk-in-visual-studio-2019.html
+    //Install-Package Microsoft.Xaml.Behaviors.Wpf -Version 1.1.19 //https://developercommunity.visualstudio.com/content/problem/535255/how-to-install-blend-sdk-in-visual-studio-2019.html
+    //xml ref: "http://schemas.microsoft.com/xaml/behaviors“
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -58,16 +67,16 @@ namespace KoloryWPF4
         //}
 
 
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            ////WindowResources
-            //EdycjaKoloru edycjaKoloru = this.Resources["edycjaKoloru"] as EdycjaKoloru;
-            ////EdycjaKoloru2 edycjaKoloru = this.Resources["edycjaKoloru"] as EdycjaKoloru2;
-            //edycjaKoloru.Zapisz();
+        //private void Window_Closed(object sender, EventArgs e)
+        //{
+        //    ////WindowResources
+        //    //EdycjaKoloru edycjaKoloru = this.Resources["edycjaKoloru"] as EdycjaKoloru;
+        //    ////EdycjaKoloru2 edycjaKoloru = this.Resources["edycjaKoloru"] as EdycjaKoloru2;
+        //    //edycjaKoloru.Zapisz();
 
-            EdycjaKoloru edycjaKoloru = this.DataContext as EdycjaKoloru;
-            edycjaKoloru.Zapisz();
-        }
+        //    EdycjaKoloru edycjaKoloru = this.DataContext as EdycjaKoloru;
+        //    edycjaKoloru.Zapisz();
+        //}
 
     }
 

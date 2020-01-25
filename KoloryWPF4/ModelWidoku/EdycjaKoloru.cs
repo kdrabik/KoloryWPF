@@ -57,11 +57,26 @@ namespace KoloryWPF4.ModelWidoku
             }
         }
 
-        public void Zapisz()
-        {
-            Ustawienia.Zapisz(kolor);
-        }
+        //public void Zapisz()
+        //{
+        //    Ustawienia.Zapisz(kolor);
+        //}
 
+        private ICommand zapiszCommand;
+        public ICommand Zapisz
+        {
+            get
+            {
+                if (zapiszCommand == null)
+                {
+                    zapiszCommand = new RelayCommand(argument => {
+                        Ustawienia.Zapisz(kolor);
+                    });
+                }
+                    
+                return zapiszCommand;
+            }
+        }
 
         //public event PropertyChangedEventHandler PropertyChanged;
 
@@ -75,17 +90,40 @@ namespace KoloryWPF4.ModelWidoku
         //}
 
 
-            //implementacja IC
+        //    //implementacja IC
+        //private ICommand resetujCommand;
+        //public ICommand Resetuj
+        //{
+        //    get
+        //    {
+        //        if (resetujCommand == null) resetujCommand = new ResetujCommand(this);
+        //        return resetujCommand;
+        //    }
+        //}
+
+        //relay command:
         private ICommand resetujCommand;
         public ICommand Resetuj
         {
             get
             {
-                if (resetujCommand == null) resetujCommand = new ResetujCommand(this);
+                if (resetujCommand == null)
+                {
+                    resetujCommand = new RelayCommand(
+                    argument =>
+                    {
+                        R = 0;
+                        G = 0;
+                        B = 0;
+                    },
+                    argument => (R != 0) || (G != 0) || (B != 0)
+                    );
+                }
                 return resetujCommand;
             }
         }
 
+        
         private ICommand losujCommand;
         public ICommand Losuj
         {
@@ -96,16 +134,30 @@ namespace KoloryWPF4.ModelWidoku
             }
         }
 
-        private ICommand zakonczCommand;
-        public ICommand Zakoncz
+      
+        //private ICommand zakonczCommand;
+        //public ICommand Zakoncz
+        //{
+        //    get
+        //    {
+        //        if (zakonczCommand == null) zakonczCommand = new ZakonczCommand(this);
+        //        return zakonczCommand;
+        //    }
+        //}
+
+        public ICommand ZamknijOkno
         {
             get
             {
-                if (zakonczCommand == null) zakonczCommand = new ZakonczCommand(this);
-                return zakonczCommand;
+                return new RelayCommand(argument => { App.Current.MainWindow.Close(); });
+
+                //przesyłając referencję okna przez parametr:
+                //return new RelayCommand(argument => { 
+                //    (argument as System.Windows.Window).Close(); 
+                //    });
             }
         }
-
+        
 
     }
 
