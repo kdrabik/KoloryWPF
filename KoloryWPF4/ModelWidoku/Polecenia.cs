@@ -16,7 +16,7 @@ namespace KoloryWPF4.ModelWidoku
         }
 
 
-        public event EventHandler CanExecuteChanged
+        public event EventHandler CanExecuteChanged //powiadamia o zmianie możliwości wykonania polecenia.
         {
             add
             {
@@ -27,11 +27,11 @@ namespace KoloryWPF4.ModelWidoku
                 CommandManager.RequerySuggested -= value;
             }
         }
-        public bool CanExecute(object parameter)
+        public bool CanExecute(object parameter) //sprawdza, czy wykonanie polecenia jest możliwe.
         {
             return (modelWidoku.R != 0) || (modelWidoku.G != 0) || (modelWidoku.B != 0);
         }
-        public void Execute(object parameter)
+        public void Execute(object parameter) //wykonuje zasadnicze działanie polecenia,
         {
             //EdycjaKoloru modelWidoku = parameter as EdycjaKoloru;
             //if (modelWidoku != null)
@@ -111,7 +111,7 @@ namespace KoloryWPF4.ModelWidoku
         {
             var w = Application.Current.Windows[0];
             w.Close();
-            //}
+        
         }
     }
 }

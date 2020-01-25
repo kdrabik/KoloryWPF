@@ -20,7 +20,7 @@ namespace KoloryWPF4.ModelWidoku
             set
             {
                 kolor.R = value;
-                OnPropertyChanged("R", "Color");
+                OnPropertyChanged("R", "RectangleColor");
             }
         }
         public byte G
@@ -32,7 +32,7 @@ namespace KoloryWPF4.ModelWidoku
             set
             {
                 kolor.G = value;
-                OnPropertyChanged("G", "Color");
+                OnPropertyChanged("G", "RectangleColor");
             }
         }
         public byte B
@@ -44,12 +44,12 @@ namespace KoloryWPF4.ModelWidoku
             set
             {
                 kolor.B = value;
-                OnPropertyChanged("B", "Color");
+                OnPropertyChanged("B", "RectangleColor");
             }
         }
         #endregion
 
-        public Color Color
+        public Color RectangleColor
         {
             get
             {
