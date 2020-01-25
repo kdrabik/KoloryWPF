@@ -86,6 +86,26 @@ namespace KoloryWPF4.ModelWidoku
             }
         }
 
+        private ICommand losujCommand;
+        public ICommand Losuj
+        {
+            get
+            {
+                if (losujCommand == null) losujCommand = new LosujCommand(this);
+                return losujCommand;
+            }
+        }
+
+        private ICommand zakonczCommand;
+        public ICommand Zakoncz
+        {
+            get
+            {
+                if (zakonczCommand == null) zakonczCommand = new ZakonczCommand(this);
+                return zakonczCommand;
+            }
+        }
+
 
     }
 

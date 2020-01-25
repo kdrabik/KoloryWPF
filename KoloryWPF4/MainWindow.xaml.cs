@@ -60,8 +60,12 @@ namespace KoloryWPF4
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            EdycjaKoloru edycjaKoloru = this.Resources["edycjaKoloru"] as EdycjaKoloru;
-            //EdycjaKoloru2 edycjaKoloru = this.Resources["edycjaKoloru"] as EdycjaKoloru2;
+            ////WindowResources
+            //EdycjaKoloru edycjaKoloru = this.Resources["edycjaKoloru"] as EdycjaKoloru;
+            ////EdycjaKoloru2 edycjaKoloru = this.Resources["edycjaKoloru"] as EdycjaKoloru2;
+            //edycjaKoloru.Zapisz();
+
+            EdycjaKoloru edycjaKoloru = this.DataContext as EdycjaKoloru;
             edycjaKoloru.Zapisz();
         }
 

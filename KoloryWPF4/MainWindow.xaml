@@ -6,27 +6,34 @@
         xmlns:local="clr-namespace:KoloryWPF4"
         xmlns:vm="clr-namespace:KoloryWPF4.ModelWidoku"
         mc:Ignorable="d"
-    Title="MainWindow" FontSize="25" Height="380" Width="525" 
-        
-        Closed="Window_Closed">
+    Title="Kolory WPF" FontSize="25" Height="380" Width="525" 
+        >
+    <!--Closed="Window_Closed">-->
 <!--KeyDown="Window_KeyDown"-->
-    <Window.InputBindings>
-        <KeyBinding Key="R" Command="{Binding Resetuj}" />
-        <MouseBinding Gesture="MiddleClick" Command="{Binding Resetuj}" />
-    </Window.InputBindings>
+
     
     <Window.Resources>
-        <vm:EdycjaKoloru x:Key="edycjaKoloru" />
+        <!--<vm:EdycjaKoloru x:Key="edycjaKoloru" />-->
         <local:ByteToDoubleConverter x:Key="konwersjaByteDouble" />
         <local:ColorToSolidColorBrushConverter x:Key="konwersjaColorBrush" />
         <local:SkładoweRGBToSolidColorBrushConverter x:Key="konwersjaRGBBrush" />
         <local:SkładoweRGBDoubleToSolidColorBrushConverter x:Key="konwersjaRGBDoubleBrush" />
+        <!--konwerter typów konieczny w WP10 /
+        vm:EdycjaKoloru2 x:Key="edycjaKoloru" /-->
+    </Window.Resources>
+    <Window.DataContext>
+        <vm:EdycjaKoloru/>
         <!--konwerter typów konieczny w WP10 /-->
         <!--vm:EdycjaKoloru2 x:Key="edycjaKoloru" /-->
-    </Window.Resources>
- 
+    </Window.DataContext>
+    <Window.InputBindings>
+        <KeyBinding Key="R" Command="{Binding Resetuj}" />
+        <KeyBinding Key="Esc" Command="{Binding Zakoncz}" />
+        <MouseBinding Gesture="MiddleClick" Command="{Binding Resetuj}" />
+    </Window.InputBindings>
     
-    <Grid DataContext="{StaticResource edycjaKoloru}" Height="319" VerticalAlignment="Bottom">
+    <!--<Grid DataContext="{StaticResource edycjaKoloru}" Height="319" VerticalAlignment="Bottom">-->
+     <Grid Height="319" VerticalAlignment="Bottom">
         <!--zwykły binding-->
         <Rectangle x:Name="rectangle" Margin="10,10,10,121" Stroke="Black">
             <Rectangle.Fill>
@@ -77,6 +84,12 @@
         <Button Content="Resetuj" Height="25" Width="75"
                 VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10"
                 Command="{Binding Resetuj}" FontSize="12" />
+        <Button Content="Losuj" Height="25" Width="75"
+            VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="120,0,0,10"
+            Command="{Binding Losuj}" FontSize="12" />
+        <Button Content="Zakończ" Height="25" Width="75"
+            VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10"
+            Command="{Binding Zakoncz}" FontSize="12" />
         <!--CommandParameter="{StaticResource edycjaKoloru}" />-->        
     </Grid>
 </Window>
